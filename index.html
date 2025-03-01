@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevBoard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-200 p-6">
+    <div class="max-w-6xl mx-auto bg-white px-6 pt-4 pb-1 rounded-xl shadow-lg">
+        <!-- Header -->
+        <div class="flex justify-between items-center mb-6">
+            <div class="flex items-center gap-2">
+                <img src="assets/logo.png" alt="Logo" class="w-8 h-8">
+                <h1 class="text-xl font-bold">Dev<span class="text-blue-600">Board</span></h1>
+            </div>
+            <div class="flex items-center gap-4">
+                <img src="assets/checkbox.png" alt="Checkbox" class="w-6 h-6">
+                <span class="text-lg font-semibold">23</span>
+                <img src="assets/theme-btn.png" alt="Theme" class="w-8 h-8 cursor-pointer" id="themeButton">
+            </div>
+        </div>   
+    </div>
+    <script>
+        document.getElementById("themeButton").addEventListener("click", function() {
+            const randomColor = `#${Math.floor(Math.random()*16777215).toString(16)}`;
+            document.body.style.backgroundColor = randomColor;
+        });
+    </script>
+</body>
+</html>
