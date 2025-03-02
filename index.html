@@ -44,7 +44,62 @@
                 </div>
             </div>
             
-            
+            <!-- Task Cards -->
+            <div class="grid grid-cols-3 gap-4" id="taskContainer">
+                <div class="task-card bg-white p-4 rounded-lg shadow">
+                    <p class="text-gray-500 text-sm">ShopEase</p>
+                    <h2 class="text-lg font-semibold">Fix Mobile Button Issue</h2>
+                    <p class="text-gray-600 text-sm my-2">Debug using Chrome DevTools...</p>
+                    <p class="text-gray-500 text-sm">Deadline: 21 March 2025</p>
+                    <button class="complete-btn mt-2 bg-blue-600 text-white px-4 py-1 rounded">Completed</button>
+                </div>
+                <div class="task-card bg-white p-4 rounded-lg shadow">
+                    <p class="text-gray-500 text-sm">CloudSync</p>
+                    <h2 class="text-lg font-semibold">Add Dark Mode</h2>
+                    <p class="text-gray-600 text-sm my-2">Store user preference in localStorage...</p>
+                    <p class="text-gray-500 text-sm">Deadline: 21 March 2025</p>
+                    <button class="complete-btn mt-2 bg-blue-600 text-white px-4 py-1 rounded">Completed</button>
+                </div>
+                <div class="task-card bg-white p-4 rounded-lg shadow">
+                    <p class="text-gray-500 text-sm">SwiftPay</p>
+                    <h2 class="text-lg font-semibold">Optimize Home Page</h2>
+                    <p class="text-gray-600 text-sm my-2">Debug using Chrome DevTools...</p>
+                    <p class="text-gray-500 text-sm">Deadline: 21 March 2025</p>
+                    <button class="complete-btn mt-2 bg-blue-600 text-white px-4 py-1 rounded">Completed</button>
+                </div>
+                <div class="task-card bg-white p-4 rounded-lg shadow">
+                    <p class="text-gray-500 text-sm">FinTrack</p>
+                    <h2 class="text-lg font-semibold">Improve Dashboard UI</h2>
+                    <p class="text-gray-600 text-sm my-2">Refactor layout, add new widgets...</p>
+                    <p class="text-gray-500 text-sm">Deadline: 22 March 2025</p>
+                    <button class="complete-btn mt-2 bg-blue-600 text-white px-4 py-1 rounded">Completed</button>
+                </div>
+                <div class="task-card bg-white p-4 rounded-lg shadow">
+                    <p class="text-gray-500 text-sm">HealthSync</p>
+                    <h2 class="text-lg font-semibold">Integrate API</h2>
+                    <p class="text-gray-600 text-sm my-2">Connect third-party health APIs...</p>
+                    <p class="text-gray-500 text-sm">Deadline: 23 March 2025</p>
+                    <button class="complete-btn mt-2 bg-blue-600 text-white px-4 py-1 rounded">Completed</button>
+                </div>
+                <div class="task-card bg-white p-4 rounded-lg shadow">
+                    <p class="text-gray-500 text-sm">EduTrack</p>
+                    <h2 class="text-lg font-semibold">Fix Enrollment Bugs</h2>
+                    <p class="text-gray-600 text-sm my-2">Resolve user authentication issues...</p>
+                    <p class="text-gray-500 text-sm">Deadline: 24 March 2025</p>
+                    <button class="complete-btn mt-2 bg-blue-600 text-white px-4 py-1 rounded">Completed</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Activity Log -->
+        <div class="w-1/4 bg-white p-4 rounded-lg shadow">
+            <div class="flex justify-between items-center">
+                <h2 class="text-lg font-semibold">Activity Log</h2>
+                <button id="clearHistory" class="bg-blue-600 text-white px-4 py-1 rounded">Clear History</button>
+            </div>
+            <div id="activityLog" class="mt-4 space-y-2"></div>
+        </div>
+    </div>
 
     <script>
         document.getElementById("themeButton").addEventListener("click", function() {
@@ -52,7 +107,6 @@
         });
 
         
-
         document.getElementById("clearHistory").addEventListener("click", function() {
             document.getElementById("activityLog").innerHTML = "";
         });
