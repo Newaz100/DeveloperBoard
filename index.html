@@ -34,7 +34,7 @@
                         <p id="taskCount" class="text-xl font-bold">6</p>
                     </div>
                 </div>
-                <div class="bg-gradient-to-r from-blue-500 to-purple-500 text-white p-4 rounded-lg flex items-center gap-4">
+                <div id="blogRedirect" class="bg-gradient-to-r from-blue-500 to-purple-500 text-white p-4 rounded-lg flex items-center gap-4 cursor-pointer">
                     <img src="assets/board.png" class="w-8 h-8">
                     <p class="text-lg font-semibold">Discover Something New Today!</p>
                 </div>
@@ -106,10 +106,44 @@
             document.body.style.backgroundColor = `#${Math.floor(Math.random()*16777215).toString(16)}`;
         });
 
-        
+        document.querySelectorAll(".complete-btn").forEach(button => {
+            button.addEventListener("click", function() {
+                let taskTitle = this.parentElement.querySelector("h2").innerText;
+                let currentTime = new Date().toLocaleTimeString();
+                alert(`You have completed the task "${taskTitle}" at ${currentTime}`);
+                
+                this.disabled = true;
+                this.classList.replace("bg-blue-600", "bg-gray-400");
+
+                let taskCount = document.getElementById("taskCount");
+                let completedCount = document.getElementById("completedCount");
+                let activityLog = document.getElementById("activityLog");
+
+                taskCount.innerText--;
+                completedCount.innerText++;
+
+                let logEntry = document.createElement("div");
+                logEntry.classList.add("bg-gray-100", "p-2", "rounded");
+                logEntry.innerText = `You have completed the task "${taskTitle}" at ${currentTime}`;
+                activityLog.prepend(logEntry);
+
+                // Check if all tasks are completed
+                let allDisabled = Array.from(document.querySelectorAll(".complete-btn")).every(btn => btn.disabled);
+                if (allDisabled) {
+                    alert("Congrats!! You have completed all the current tasks.");
+                }
+            });
+        });
+
+        document.getElementById("blogRedirect").addEventListener("click", function() {
+        window.location.href = "blog.html";
+    });
+
         document.getElementById("clearHistory").addEventListener("click", function() {
             document.getElementById("activityLog").innerHTML = "";
         });
     </script>
+
+
 </body>
 </html>
