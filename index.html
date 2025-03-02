@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DevBoard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-blue-100 p-6">
@@ -40,7 +41,7 @@
                 </div>
                 <div class="bg-white p-4 rounded-lg shadow flex items-center gap-4">
                     <img src="assets/calender.png" class="w-8 h-8">
-                    <p class="text-gray-600">Wed, Jul 28 2025</p>
+                    <p id="current-date" class="text-gray-600"></p>
                 </div>
             </div>
             
@@ -93,8 +94,8 @@
 
         <!-- Activity Log -->
         <div class="w-1/4 bg-white p-4 rounded-lg shadow">
-            <div class="flex justify-between items-center">
-                <h2 class="text-lg font-semibold">Activity Log</h2>
+            <div class="flex flex-col justify-between items-center">
+                <h2 class="text-lg font-semibold">  <i class="fa-solid fa-clock-rotate-left"></i> Activity Log</h2>
                 <button id="clearHistory" class="bg-blue-600 text-white px-4 py-1 rounded">Clear History</button>
             </div>
             <div id="activityLog" class="mt-4 space-y-2"></div>
@@ -143,6 +144,19 @@
             document.getElementById("activityLog").innerHTML = "";
         });
     </script>
+
+
+<script>
+    // Get the current date
+    const currentDate = new Date();
+    
+    // Format the date (e.g., "Wed, Jul 28 2025")
+    const options = { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' };
+    const formattedDate = currentDate.toLocaleDateString('en-US', options);
+
+    // Set the formatted date in the paragraph
+    document.getElementById('current-date').textContent = formattedDate;
+</script>
 
 
 </body>
