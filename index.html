@@ -102,62 +102,7 @@
         </div>
     </div>
 
-    <script>
-        document.getElementById("themeButton").addEventListener("click", function() {
-            document.body.style.backgroundColor = `#${Math.floor(Math.random()*16777215).toString(16)}`;
-        });
-
-        document.querySelectorAll(".complete-btn").forEach(button => {
-            button.addEventListener("click", function() {
-                let taskTitle = this.parentElement.querySelector("h2").innerText;
-                let currentTime = new Date().toLocaleTimeString();
-                alert(`You have completed the task "${taskTitle}" at ${currentTime}`);
-                
-                this.disabled = true;
-                this.classList.replace("bg-blue-600", "bg-gray-400");
-
-                let taskCount = document.getElementById("taskCount");
-                let completedCount = document.getElementById("completedCount");
-                let activityLog = document.getElementById("activityLog");
-
-                taskCount.innerText--;
-                completedCount.innerText++;
-
-                let logEntry = document.createElement("div");
-                logEntry.classList.add("bg-gray-100", "p-2", "rounded");
-                logEntry.innerText = `You have completed the task "${taskTitle}" at ${currentTime}`;
-                activityLog.prepend(logEntry);
-
-                // Check if all tasks are completed
-                let allDisabled = Array.from(document.querySelectorAll(".complete-btn")).every(btn => btn.disabled);
-                if (allDisabled) {
-                    alert("Congrats!! You have completed all the current tasks.");
-                }
-            });
-        });
-
-        document.getElementById("blogRedirect").addEventListener("click", function() {
-        window.location.href = "blogs.html";
-    });
-
-        document.getElementById("clearHistory").addEventListener("click", function() {
-            document.getElementById("activityLog").innerHTML = "";
-        });
-    </script>
-
-
-<script>
-    // Get the current date
-    const currentDate = new Date();
-    
-    // Format the date (e.g., "Wed, Jul 28 2025")
-    const options = { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' };
-    const formattedDate = currentDate.toLocaleDateString('en-US', options);
-
-    // Set the formatted date in the paragraph
-    document.getElementById('current-date').textContent = formattedDate;
-</script>
-
-
+    <!-- Link to the external JavaScript file -->
+    <script src="javascript.js"></script>
 </body>
 </html>
